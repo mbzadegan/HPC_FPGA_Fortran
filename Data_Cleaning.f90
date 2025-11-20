@@ -18,7 +18,7 @@ program data_cleaning
     logical :: valid_data
     character(len=200) :: line
 
-    ! Input file and output file names
+    ! Input file and output file names:
     input_file = "input_data.txt"
     output_file = "cleaned_data.txt"
 
