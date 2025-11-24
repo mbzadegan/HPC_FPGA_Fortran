@@ -1,0 +1,30 @@
+// Test Bench example
+
+module tb_packet_generator();
+    reg clk = 0;
+    reg rst = 1;
+    reg start = 0;
+
+    wire [31:0] data_out;
+    wire data_valid;
+    wire packet_done;
+
+    packet_generator uut (
+        .clk(clk),
+        .rst(rst),
+        .start(start),
+        .data_out(data_out),
+        .data_valid(data_valid),
+        .packet_done(packet_done)
+    );
+
+    always #5 clk = ~clk;   // 100MHz clock
+
+    initial begin
+        #20 rst = 0;
+        #20 start = 1;
+
+        // Run long enough to see multiple packets
+        #2000 $stop;
+    end
+endmodule
